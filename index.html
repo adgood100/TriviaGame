@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+	<title>Trivia Game</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css"> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+  <!-- Bootstrap Files -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+</head>
+<body>
+  <h2 class="quizHeader">Fantasy Football Quiz!</h2>
+  
+	<table style="width:auto">
+	<tr>
+	  <td>
+	  	<div>
+	  		<p class="question">1. Which of the following is NOT a type of fantasy football league?</p>
+
+	    	<ul>
+	    	<input class="answer" type="radio" name="q1" value="1">
+	        <label id="correctString1">Manager's League</label>
+	    	<br>
+	        <input class="answer" type="radio" name="q1" value="0">
+	        <label>Salary Cap League</label>
+	        <br>
+	        <input class="answer" type="radio" name="q1" value="0">
+	        <label>Pick 'Em League</label>
+	        <br>
+	        <input class="answer" type="radio" name="q1" value="0">
+	        <label>Veni Vidi Whiskey</label>
+    		</ul>
+	  	</div>
+	  </td>
+	  <td>
+	  	<div>
+	  		<p class="question">2. How long is an official NFL football field?</p>
+
+	    	<ul>
+	        <input class="answer" type="radio" name="q2" value="0">
+	        <label>100 Yards</label>
+	        <br>
+	        <input class="answer" type="radio" name="q2" value="1">
+	        <label id="correctString2">120 Yards</label>
+	        <br>
+	        <input class="answer" type="radio" name="q2" value="0">
+	        <label>140 Yards</label>
+	        <br>
+	        <input class="answer" type="radio" name="q2" value="0">
+	        <label>None of the above</label>
+	    	</ul>
+	  	</div>
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	  	<div>
+	  		<p class="question">3. Which of the following reasons will NOT stop the clock?</p>
+
+	    	<ul>
+	        <input class="answer" type="radio" name="q3" value="0">
+	        <label>Running Out of Bounds</label>
+	        <br>
+	        <input class="answer" type="radio" name="q3" value="1">
+	        <label id="correctString3">4 Minute Warning</label>
+	        <br>
+	        <input class="answer" type="radio" name="q3" value="0">
+	        <label>Incomplete Pass</label>
+	        <br>
+	        <input class="answer" type="radio" name="q3" value="0">
+	        <label>I need to tie my shoelaces</label>
+	    	</ul>
+		</div>
+	  </td>
+	  <td>
+	  	<div>
+	  		<p class="question">4. What is a turnover?</p>
+
+	    	<ul>
+	        <input class="answer" type="radio" name="q4" value="0">
+	        <label>A Flaky Pastry</label>
+	        <br>
+	        <input class="answer" type="radio" name="q4" value="1">
+	        <label id="correctString4">When a team recovers a ball from the other team's fumble or interception</label>
+	        <br>
+	        <input class="answer" type="radio" name="q4" value="0">
+	        <label>When a team recovers a ball from a punt</label>
+	        <br>
+	        <input class="answer" type="radio" name="q4" value="0">
+	        <label>When the referee gives the ball to the other team</label>
+    		</ul>
+	  	</div>
+	  </td>
+	</tr>
+	</table>
+<br/>
+  <div class="submitter">
+          <input class="quizSubmit" id="submitButton" onClick="submitQuiz()"
+          type="submit" value="Submit" />
+    </div>
+  
+<!--show only wrong answers on submit-->
+    <div class="quizAnswers" id="correctAnswer1"></div>
+	    <div class="quizAnswers" id="correctAnswer2"></div>
+    <div class="quizAnswers" id="correctAnswer3"></div>
+    <div class="quizAnswers" id="correctAnswer4"></div>
+
+<!--show score upon submit-->
+    <div>
+    	<h2 class="quizScore" id="userScore"></h2>
+    </div>
+	</div>
+
+</body>
+<script src='assets/javascript/app.js'></script>
+</html>
