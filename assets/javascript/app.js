@@ -3,22 +3,8 @@
 	var panelNum = 0;
 	var nextPanel = 0;
 	var displyndx = 0;
+	var gameStarted = 0;
 	
-	var questions2Answer = [
-		'<p class="question">1. Which of the following is NOT a type of fantasy football league?</p>',
-		'<p class="question">2. How long is an official NFL football field?</p>',
-		'<p class="question">3. Which of the following reasons will NOT stop the clock?</p>',
-		'<p class="question">4. What is a turnover?</p>',
-		'<p class="question">5. What team won the first ever Super Bowl</p>',
-		'<p class="question">6. This question is intended to assess your general football and fantasy football knowledge. Manning throws a 45 yard bomb to Calvin Johnson for a touchdown. In majority of ff scoring formats this play is how many points for Johnson?</p>',
-		"<p class='question'>7. You have the first pick of the draft. It's a PPR league. Who do you take first?</p>",
-		"<p class='question'>8.  How many QB's are you allowed to start each week?</p>",
-		"<p class='question'>9. Cam Newton just had a breakout seats this year. You know he could be as good but when it's your time to pick there is high level QB's on the block still. ESPN analysts say he won't do as good. Who do you take?</p>",
-		"<p class='question'>10. It's 2016 in a PPR league and jerry rice catches a 40 yard pass. How many points does he get?</p>",
-		"<p class='question'>11. Who was on the cover of last year's Madden 2016?</p>",
-		"<p class='12. question'>What don't you do?</p>"
-	]
-
 	var answersOne = [
 		'<p class="question">1. Which of the following is NOT a type of fantasy football league?</p>',
 		'<input class="answer" type="radio" name="q1" value="1"> <label id="correctString1">A. Managers League</label>',
@@ -49,7 +35,7 @@
 		]
 	var	answersFive = [
 		'<p class="question">5. What team won the first ever Super Bowl</p>',
-		'<input class="answer" type="radio" name="q5" value="1"> <label id="correctString5>A. Green Bay Packers</label>',
+		'<input class="answer" type="radio" name="q5" value="1"> <label id="correctString5">A. Green Bay Packers</label>',
 		'<input class="answer" type="radio" name="q5" value="0"> <label>B. Kansas City Chiefs</label>',
 		'<input class="answer" type="radio" name="q5" value="0"> <label>C. Oakland Raiders</label>',
 		'<input class="answer" type="radio" name="q5" value="0"> <label>D. Pittsburgh Steelers</label>'
@@ -66,19 +52,19 @@
 		'<input class="answer" type="radio" name="q7" value="0"> <label>A. Tom Brady</label>',
 		'<input class="answer" type="radio" name="q7" value="0"> <label>B. Stephen Gostkowski </label>',
 		'<input class="answer" type="radio" name="q7" value="0"> <label>C. Cam Newton</label>',
-		'<input class="answer" type="radio" name="q7" value="1"> <label id="correctString7>D. Antonio Brown</label>'
+		'<input class="answer" type="radio" name="q7" value="1"> <label id="correctString7">D. Antonio Brown</label>'
 		]
 	var	answersEight = [
 		"<p class='question'>8.  How many QB's are you allowed to start each week?</p>",
 		'<input class="answer" type="radio" name="q8" value="0"> <label>A. 24</label>',
 		'<input class="answer" type="radio" name="q8" value="0"> <label>B. Tom Brady + anyone cause he is that good</label>',
-		'<input class="answer" type="radio" name="q8" value="1"> <label id="correctString8>C. 1</label>',
+		'<input class="answer" type="radio" name="q8" value="1"> <label id="correctString8">C. 1</label>',
 		'<input class="answer" type="radio" name="q8" value="0"> <label>D. As many as you want</label>'
 		]
 	var	answersNine = [
 		"<p class='question'>9. Cam Newton just had a breakout seats this year. You know he could be as good but when it's your time to pick there is high level QB's on the block still. ESPN analysts say he won't do as good. Who do you take?</p>",
 		'<input class="answer" type="radio" name="q9" value="0"> <label>A. Cam, no doubt he is gonna be amazing again</label>',
-		'<input class="answer" type="radio" name="q9" value="1"> <label id="correctString9>B. Tom Brady, WTF? Cam just got lucky</label>',
+		'<input class="answer" type="radio" name="q9" value="1"> <label id="correctString9">B. Tom Brady, WTF? Cam just got lucky</label>',
 		'<input class="answer" type="radio" name="q9" value="0"> <label>C. John Hickenlooper because he passed for more than any QB in 2015 season</label>',
 		'<input class="answer" type="radio" name="q9" value="0"> <label>D. Peyton Manning because he is the best of all time</label>'
 		]
@@ -86,7 +72,7 @@
 		"<p class='question'>10. It's 2016 in a PPR league and jerry rice catches a 40 yard pass. How many points does he get?</p>",
 		'<input class="answer" type="radio" name="q10" value="0"> <label>A. 11</label>',
 		'<input class="answer" type="radio" name="q10" value="0"> <label>B. 8</label>',
-		'<input class="answer" type="radio" name="q10" value="1"> <label id="correctString10>C. 0</label>',
+		'<input class="answer" type="radio" name="q10" value="1"> <label id="correctString10">C. 0</label>',
 		'<input class="answer" type="radio" name="q10" value="0"> <label>D. 15</label>'
 		]
 	var	answersEleven = [
@@ -94,24 +80,42 @@
 		'<input class="answer" type="radio" name="q11" value="0"> <label>A. Peyton Manning</label>',
 		'<input class="answer" type="radio" name="q11" value="0"> <label>B. Richard Sherman</label>',
 		'<input class="answer" type="radio" name="q11" value="0"> <label>C. Russell Wilson</label>',
-		'<input class="answer" type="radio" name="q11" value="1"> <label id="correctString11>D. Odell Becham Jr</label>'
+		'<input class="answer" type="radio" name="q11" value="1"> <label id="correctString11">D. Odell Becham Jr</label>'
 		]
 	var	answersTwelve = [
-		"<p class='12. question'>What don't you do?</p>",
+		"<p class='question'>12. What you don't do?</p>",
 		'<input class="answer" type="radio" name="q12" value="0"> <label>A. Open up that window</label>',
 		'<input class="answer" type="radio" name="q12" value="0"> <label>B. Go chasing waterfalls</label>',
-		'<input class="answer" type="radio" name="q12" value="1"> <label id="correctString13>C. Draft a quarterback in the first round</label>',
+		'<input class="answer" type="radio" name="q12" value="1"> <label id="correctString12">C. Draft a quarterback in the first round</label>',
 		'<input class="answer" type="radio" name="q12" value="0"> <label>Wanna miss a thang</label>'
 		]
 
 	
 	function startQuiz() {
-		resetUI();
+		if (gameStarted === 0) {
+			gameStarted++;
+			resetUI();
+			incrementCounters();
+			$(".quizStart").addClass('shownPanel');
+			hidePanel();
+			loadQuestions2Answer();
+			setPanelTimer();
+
+		}
+	}
+
+	function nextpanel () {
+		hidePanel();
 		incrementCounters();
 		loadQuestions2Answer();
 		setPanelTimer();
 	}
-
+	
+	function hidePanel () {
+		$(".shownPanel").addClass('hide');
+	}
+	
+	
 	function incrementCounters() {
 		displyndx++;
 		panelNum++;
@@ -122,6 +126,12 @@
 	
 	function loadQuestions2Answer() {
 		if (panelNum === 1) {
+			$('.next-Panel-1').append (	
+				$('<div/>').addClass('Panel1').html('<input class="nextPanelbtn pull-left" id="nextButton" onClick="nextpanel()" type="submit" value="Next" />'));
+			$('.next-Panel-1').append (	
+				$('<div/>').addClass('Panel1').html('<input class="nextPanelbtn pull-left" id="nextButton" onClick="nextpanel()" type="submit" value="Next" />'));
+			$(".panel1").addClass('shownPanel');
+									
 			for (var i = 0; i < 4; i++) {
 				if (i === 0) {
 					
@@ -152,70 +162,94 @@
 						$('.answer-display4').append (	
 							$('<div/>').addClass('shown-answer').html(answersFour[j] + "<br>"));
 					}
-				}
-			}
-	
-		} else if (panelNum === 2) {
-			for (var i = 4; i < 8; i++) {
-			$('.question-display').append (
-				$('<p/>').addClass('shown-question question').html(questionAndAnswers[i].question));
-				for (var j = 0; j < questionAndAnswers.answers.length; j++) {
-					var correctAnswer = questionAndAnswers.answers[j].value;
-					if (correctAnswer = 1) {			
-						$('.answer-display').append (	
-							$('<input/>').addClass('shown-answer answer').html(' type="radio" name="q1" value="1">' + questionAndAnswers.answers[j].answer));
-					} else {
-						$('.answer-display').append (	
-							$('<input/>').addClass('shown-answer answer').html(' type="radio" name="q1" value="0">' + questionAndAnswers.answers[j].answer));
-						}
-				}
-			}
-	
-		} 	else if (panelNum === 3) {
-				for (var i = 8; i < 12; i++) {
-					$('.question-display').append (
-					$('<p/>').addClass('shown-question question').html(questionAndAnswers[i].question));
-					for (var j = 0; j < questionAndAnswers.answers.length; j++) {
-						var correctAnswer = questionAndAnswers.answers[j].value;
-						if (correctAnswer = 1) {			
-							$('.answer-display').append (	
-								$('<input/>').addClass('shown-answer answer').html(' type="radio" name="q1" value="1">' + questionAndAnswers.answers[j].answer));
-						} else {
-							$('.answer-display').append (	
-								$('<input/>').addClass('shown-answer answer').html(' type="radio" name="q1" value="0">' + questionAndAnswers.answers[j].answer));
-							}
-					}
-				}
-	
-		}		else if (panelNum === 4) {
-					for (var i = 12; i < 13; i++) {
-						$('.question-display').append (
-						$('<p/>').addClass('shown-question question').html(questionAndAnswers[i].question));
-						for (var j = 0; j < questionAndAnswers.answers.length; j++) {
-							var correctAnswer = questionAndAnswers.answers[j].value;
-							if (correctAnswer = 1) {			
-								$('.answer-display').append (	
-									$('<input/>').addClass('shown-answer answer').html(' type="radio" name="q1" value="1">' + questionAndAnswers.answers[j].answer));
-							} else {
-								$('.answer-display').append (	
-									$('<input/>').addClass('shown-answer answer').html(' type="radio" name="q1" value="0">' + questionAndAnswers.answers[j].answer));
-								}
-						}
-					}
-	
-		}
 
+				}
+
+			}
+	
+		} else if (panelNum === 2) {	
+											
+			$('.next-Panel-2').append (	
+				$('<div/>').addClass('Panel2').html('<input class="nextPanelbtn pull-left" id="nextButton" onClick="nextpanel()" type="submit" value="Next" />'));
+			$(".panel2").addClass('shownPanel');
+
+			for (var i = 4; i < 8; i++) {
+				if (i === 4) {
+					
+					for (var j = 0; j < answersFive.length; j++) {
+						console.log("This is the value of answersFive.length " + answersFive.length);
+						$('.answer-display5').append (	
+							$('<div/>').addClass('shown-answer').html(answersFive[j] + "<br>"));
+					}			
+				}
+				
+				if (i === 5) {
+					for (var j = 0; j < answersSix.length; j++) {
+						console.log("This is the value of answersSix.length " + answersSix.length);
+						$('.answer-display6').append (	
+							$('<div/>').addClass('shown-answer').html(answersSix[j] + "<br>"));
+					}
+				}
+				if (i === 6) {
+					for (var j = 0; j < answersSeven.length; j++) {
+						console.log("This is the value of answersSeven.length " + answersSeven.length);
+						$('.answer-display7').append (	
+							$('<div/>').addClass('shown-answer').html(answersSeven[j] + "<br>"));
+					}
+				}
+				if (i === 7) {
+					for (var j = 0; j < answersEight.length; j++) {
+						console.log("This is the value of answersEight.length " + answersEight.length);
+						$('.answer-display8').append (	
+							$('<div/>').addClass('shown-answer').html(answersEight[j] + "<br>"));
+					}
+				}
+			}
+			
+		} 	else if (panelNum === 3) {
+								
+				$('.submitter').append (	
+					$('<div/>').addClass('quizStart').html('<input class="quizSubmit" id="submitButton" onClick="submitQuiz()" type="submit" value="Submit" />'));
+				$(".panel3").addClass('shownPanel');
+				
+			for (var i = 8; i < 12; i++) {
+				if (i === 8) {
+					
+					for (var j = 0; j < answersNine.length; j++) {
+						console.log("This is the value of answersNine.length " + answersNine.length);
+						$('.answer-display9').append (	
+							$('<div/>').addClass('shown-answer').html(answersNine[j] + "<br>"));
+					}			
+				}
+				
+				if (i === 9) {
+					for (var j = 0; j < answersTen.length; j++) {
+						console.log("This is the value of answersTen.length " + answersTen.length);
+						$('.answer-display10').append (	
+							$('<div/>').addClass('shown-answer').html(answersTen[j] + "<br>"));
+					}
+				}
+				if (i === 10) {
+					for (var j = 0; j < answersEleven.length; j++) {
+						console.log("This is the value of answersEleven.length " + answersEleven.length);
+						$('.answer-display11').append (	
+							$('<div/>').addClass('shown-answer').html(answersEleven[j] + "<br>"));
+					}
+				}
+				if (i === 11) {
+					for (var j = 0; j < answersTwelve.length; j++) {
+						console.log("This is the value of answersTwelve.length " + answersTwelve.length);
+						$('.answer-display12').append (	
+							$('<div/>').addClass('shown-answer').html(answersTwelve[j] + "<br>"));
+					}
+					
+							
+				}
+			}
+	
+		}		
 	}
-	
-	function loadAnswers2Questions() {
-	
-		for (var j = 0; j < answersOne.length; j++) {
-			console.log("This is the value of answersone.length " + answersOne.length);
-			$('.answer-display1').append (	
-				$('<div/>').addClass('shown-answer').html(answersOne[j] + "<br>"));
-		}
-	}
-	
+		
 	function setPanelTimer() {
 		alert("You are now in setPanelTimer");
 	}
@@ -224,6 +258,7 @@
 		var panelNum = 0;
 		var nextPanel = 0;
 		var displyndx = 0;
+		var gameStarted = 0;
 		alert("You are now in resetUI");
 	}
 	
@@ -248,12 +283,15 @@
 		}
 
 	// calc score with answerScore function
-		var calcScore = (answerScore('q1') + answerScore('q2') + answerScore('q3') + answerScore('q4'));
+		var calcScore = (answerScore('q1') + answerScore('q2') + answerScore('q3') + answerScore('q4') +
+						answerScore('q5') + answerScore('q6') + answerScore('q7') + answerScore('q48') +
+						answerScore('q9') + answerScore('q10') + answerScore('q11') + answerScore('q12')
+						);
 		console.log("CalcScore: " + calcScore); // it works!
 
 	// function to return correct answer string
 		function correctAnswer (correctStringNo, qNumber) {
-			console.log("qNumber: " + qNumber);  // logs 1,2,3,4 after called below
+			console.log("qNumber: " + qNumber);  // logs 1,2,3,4, 5, 6, 7, 8, 9, 10, 11, 12 after called below
 			return ("The correct answer for question #" + qNumber + ": &nbsp;<strong>" +
 				(document.getElementById(correctStringNo).innerHTML) + "</strong>");
 			}
@@ -271,7 +309,32 @@
 		if (answerScore('q4') === 0) {
 			document.getElementById('correctAnswer4').innerHTML = correctAnswer('correctString4', 4);
 		}
+		if (answerScore('q5') === 0) {
+			document.getElementById('correctAnswer5').innerHTML = correctAnswer('correctString5', 5);
+		}
+		if (answerScore('q6') === 0) {
+			document.getElementById('correctAnswer6').innerHTML = correctAnswer('correctString6', 6);
+		}
+		if (answerScore('q7') === 0) {
+			document.getElementById('correctAnswer7').innerHTML = correctAnswer('correctString7', 7);
+		}
+		if (answerScore('q8') === 0) {
+			document.getElementById('correctAnswer8').innerHTML = correctAnswer('correctString8', 8);
+		}
+		if (answerScore('q9') === 0) {
+			document.getElementById('correctAnswer9').innerHTML = correctAnswer('correctString9', 9);
+		}
+		if (answerScore('q10') === 0) {
+			document.getElementById('correctAnswer10').innerHTML = correctAnswer('correctString10', 10);
+		}
+		if (answerScore('q11') === 0) {
+			document.getElementById('correctAnswer11').innerHTML = correctAnswer('correctString11', 11);
+		}
+		if (answerScore('124') === 0) {
+			document.getElementById('correctAnswer12').innerHTML = correctAnswer('correctString12', 12);
+		}
 
+		
 	// calculate "possible score" integer
 		var questionCountArray = document.getElementsByClassName('question');
 

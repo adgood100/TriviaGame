@@ -16,9 +16,9 @@
   <script src="https://code.jquery.com/jquery.js"></script>
 
 </head>
-<body>
+<body style="margin: auto;">
   <h2 class="quizHeader">Fantasy Football Quiz!</h2>
-  
+ <!-- 
 	<table style="width:auto; background-color: #eaece5;">
 	<tr>
 	  <td>
@@ -102,34 +102,47 @@
 	</tr>
 	</table>
 <br/>
+<!--
   <div class="submitter">
           <input class="quizSubmit" id="submitButton" onClick="submitQuiz()"
           type="submit" value="Submit" />
     </div>
   
-<!--show only wrong answers on submit-->
+<!--show only wrong answers on submit
     <div class="quizAnswers" id="correctAnswer1"></div>
 	    <div class="quizAnswers" id="correctAnswer2"></div>
     <div class="quizAnswers" id="correctAnswer3"></div>
     <div class="quizAnswers" id="correctAnswer4"></div>
 
-<!--show score upon submit-->
+<!--show score upon submit
     <div>
     	<h2 class="quizScore" id="userScore"></h2>
     </div>
 	</div>
-	
+-->	
 <!-- show first 1-4 questions -->
 
-	<table style="width:auto; background-color: #eaece5;">
-	<tr class= "row1">
-	  <td class= "columnR1C1">
+  <!--show start quiz button -->
+	<container>
+	<div class="startQuiz">
+		<input class="quizStart pull-left" id="startButton" onClick="startQuiz()" type="submit" value="Start" />
+
+	</div>
+	<br>
+<!--	<div class="next-Panel">
+		<input class="pull-left" id="nextButton" onClick="nextpanel()" type="submit" value="Next" />
+
+	</div>
+-->
+	<table class="panel1" style="width:auto; background-color: #eaece5;">
+	<tr class="row1">
+	  <td class="columnR1C1">
 	  	<div class="question-display1">
 	    	<ul class="answer-display1">
     		</ul>
 	  	</div>
 	  </td>
-	  <td class= "columnR1C2">
+	  <td class="columnR1C2">
 	  	<div class="question-display2">
 	    	<ul class="answer-display2">
 	    	</ul>
@@ -137,36 +150,131 @@
 	  </td>
 	</tr>
 	<tr class="row2">
-	  <td class= "columnR2C1">
+	  <td class="columnR2C1">
 	  	<div class="question-display3">
 	    	<ul class="answer-display3">
 	    	</ul>
 		</div>
 	  </td>
-	  <td class= "columnR2C2">
+	  <td class="columnR2C2">
 	  	<div class="question-display4">
 	    	<ul class="answer-display4">
     		</ul>
 	  	</div>
 	  </td>
 	</tr>
+	<tr>
+		<td class="row3">
+			<div class="next-Panel-1"> </div>
+		</td>
+	</tr>
 	</table>
-<br/>
-  <div class="startQuiz">
-          <input class="quizStart" id="startButton" onClick="startQuiz()"
-          type="submit" value="Start" />
-    </div>
-
-	<div class="submitter">
-          <input class="quizSubmit" id="submitButton" onClick="submitQuiz()"
-          type="submit" value="Submit" />
-    </div>
-    
+	<br/>
 
 <!-- show second 5-8 questions -->
+
+	<table class="panel2" style="width:auto; background-color: #eaece5;">
+	<tr class="row1">
+	  <td class="columnR1C1">
+	  	<div class="question-display5">
+	    	<ul class="answer-display5">
+    		</ul>
+	  	</div>
+	  </td>
+	  <td class="columnR1C2">
+	  	<div class="question-display6">
+	    	<ul class="answer-display6">
+	    	</ul>
+	  	</div>
+	  </td>
+	</tr>
+	<tr class="row2">
+	  <td class="columnR2C1">
+	  	<div class="question-display7">
+	    	<ul class="answer-display7">
+	    	</ul>
+		</div>
+	  </td>
+	  <td class="columnR2C2">
+	  	<div class="question-display8">
+	    	<ul class="answer-display8">
+    		</ul>
+	  	</div>
+	  </td>
+	</tr>
+	<tr class="row3">
+		<td>
+			<div class="next-Panel-2"> </div>
+		</td>
+	</tr>
+	</table>
+	<br/>
+
+
 <!-- show third 9-12 questions -->
-<!-- show forth 13-15 questions -->
+
+	<table class="panel3" style="width:auto; background-color: #eaece5;">
+	<tr class="row1">
+	  <td class="columnR1C1">
+	  	<div class="question-display9">
+	    	<ul class="answer-display9">
+    		</ul>
+	  	</div>
+	  </td>
+	  <td class="columnR1C2">
+	  	<div class="question-display10">
+	    	<ul class="answer-display10">
+	    	</ul>
+	  	</div>
+	  </td>
+	</tr>
+	<tr class="row2">
+	  <td class="columnR2C1">
+	  	<div class="question-display11">
+	    	<ul class="answer-display11">
+	    	</ul>
+		</div>
+	  </td>
+	  <td class="columnR2C2">
+	  	<div class="question-display12">
+	    	<ul class="answer-display12">
+    		</ul>
+	  	</div>
+	  </td>
+	</tr>
+	<tr class="row3">
+	<!--show control buttons -->
+		<td>
+			<div class="submitter">
+			</div>
+		</td>
+	</tr>
+	</table>
+	<br/>
+
+  <!--show only wrong answers on submit-->
+    <div class="quizAnswers" id="correctAnswer1"></div>
+	<div class="quizAnswers" id="correctAnswer2"></div>
+    <div class="quizAnswers" id="correctAnswer3"></div>
+    <div class="quizAnswers" id="correctAnswer4"></div>
+	<div class="quizAnswers" id="correctAnswer5"></div>
+	<div class="quizAnswers" id="correctAnswer6"></div>
+    <div class="quizAnswers" id="correctAnswer7"></div>
+    <div class="quizAnswers" id="correctAnswer8"></div>
+    <div class="quizAnswers" id="correctAnswer9"></div>
+	<div class="quizAnswers" id="correctAnswer10"></div>
+    <div class="quizAnswers" id="correctAnswer11"></div>
+    <div class="quizAnswers" id="correctAnswer12"></div>
+
+<!--show score upon submit-->
+    <div>
+    	<h2 class="quizScore" id="userScore"></h2>
+    </div>
+	</div>
+  
+
 <!-- end of questions -->
+</container>
 </body>
 <script src='assets/javascript/app.js'></script>
 </html>
