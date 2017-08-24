@@ -1,106 +1,231 @@
 // scripts here:
 
-	var questionAndAnswer = [
-		{question: '<p class="question">1. Which of the following is NOT a type of fantasy football league?</p>',
-		answers: {
-			answerA: "<label id='correctString1'>A. Manager's League</label>",
-			value: "1",
-			answerB: '<label>B. Salary Cap League</label>',
-			value: "0",
-			answerC: "<label>C. Pick 'Em League</label>",
-			value: "0",
-			answerD: '<label>D.  Veni Vidi Whiskey</label>',
-			value: "0"
-		}},
-		{question: '<p class="question">2. How long is an official NFL football field?</p>',
-		answers: {
-			answerA: '<label>A. 100 Yards</label>',
-			value: "0",
-			answerB: '<label id="correctString2">B. 120 Yards</label>',
-			value: "1",
-			answerC: '<label>C. 140 Yards</label>',
-			value: "0",
-			answerD: '<label>D. None of the above</label>',
-			value: "0"
-		}},
-		{question: '<p class="question">3. Which of the following reasons will NOT stop the clock?</p>',
-		answerA: '<label>A. 4 Minute Warning</label>',
-		answerB: '<label id="correctString3">B. Running Out of Bounds</label>',
-		answerC: '<label>C. Incomplete Pass</label>',
-		answerD: '<label>D. I need to tie my shoelaces</label>'
-		},
-		{question: '<p class="question">4. What is a turnover?</p>',
-		answerA: '<label>A. A Flaky Pastry</label>',
-		answerB: "<label id='correctString4'>B. When a team recovers a ball from the other team's fumble or interception</label>",
-		answerC: '<label>C. When a team recovers a ball from a punt</label>',
-		answerD: '<label>D. When the referee gives the ball to the other team</label>'
-		},
-		{question: '<p class="question">5. What team won the first ever Super Bowl</p>',
-		answerA: '<label id="correctString5>A. Green Bay Packers</label>',
-		answerB: '<label>B. Kansas City Chiefs</label>',
-		answerC: '<label>C. Oakland Raiders</label>',
-		answerD: '<label>D. Pittsburgh Steelers</label>'
-		},
-		{question: '<p class="question">6. This question is intended to assess your general football and fantasy football knowledge. Manning throws a 45 yard bomb to Calvin Johnson for a touchdown. In majority of ff scoring formats this play is how many points for Johnson?</p>',
-		answerA: '<label>A. 6 points></label>',
-		answerB: '<label>B. 10 points</label>',
-		answerC: '<label>C. 8 points</label>',
-		answerD: "<label id='correctString6'>D. 10, but there isn't fantasy football on pro bowl week</label>"
-		},
-		{question: "<p class='question'>7. You have the first pick of the draft. It's a PPR league. Who do you take first?</p>",
-		answerA: '<label>A. Tom Brady</label>',
-		answerB: '<label>B. Stephen Gostkowski </label>',
-		answerC: '<label>C. Cam Newton</label>',
-		answerD: '<label id="correctString7>D. Antonio Brown</label>'
-		},
-		{question: "<p class='question'>8.  How many QB's are you allowed to start each week?</p>",
-		answerA: '<label>A. 24</label>',
-		answerB: "<label>B. Tom Brady + anyone cause he's that good</label>",
-		answerC: '<label id="correctString8>C. 1</label>',
-		answerD: '<label>D. As many as you want</label>'
-		},
-		{question: "<p class='question'>9. Cam Newton just had a breakout seats this year. You know he could be as good but when it's your time to pick there is high level QB's on the block still. ESPN analysts say he won't do as good. Who do you take?</p>",
-		answerA: "<label>A. Cam, no doubt he's gonna be amazing again</label>",
-		answerB: '<label id="correctString9>B. Tom Brady, WTF? Cam just got lucky</label>',
-		answerC: '<label>C. John Hickenlooper because he passed for more than any QB in 2015 season</label>',
-		answerD: "<label>D. Peyton Manning because he's the best of all time</label>"
-		},
-		{question: "<p class='question'>10. It's 2016 in a PPR league and jerry rice catches a 40 yard pass. How many points does he get?</p>",
-		answerA: '<label>A. 11</label>',
-		answerB: '<label>B. 8</label>',
-		answerC: '<label id="correctString10>C. 0</label>',
-		answerD: '<label>D. 15</label>'
-		},
-		{question: "<p class='question'>11. Who was on the cover of last year's Madden 2016?</p>",
-		answerA: '<label>A. Peyton Manning</label>',
-		answerB: '<label>B. Richard Sherman</label>',
-		answerC: '<label>C. Russell Wilson</label>',
-		answerD: '<label id="correctString11>D. Odell Becham Jr</label>'
-		},
-		{question: '<p class="question">12. True or False. Brett Favre was the 2010-2011 QB of the ravens.</p>',
-		answerA: '<label>True</label>',
-		answerB: '<label id="correctString12>False</label>'
-		},
-		{question: '<p class="question">13. Match the player to the correct team.</p>',
-		answerA: '<label>A. Tom Brady </label>',
-		answerB: '<label>B. Joe Montana</label>',
-		answerC: '<label>C. O.J Simpson</label>',
-		answerD: '<label>D. Archie Manning</label>',
-		answerE: '<label>E. Craig Morton</label>'
-		},
-		{question: '<p class="question">14. Who is the best QB to play in history? Spelling counts.</p>',
-		answerA: '<label></label>',
-		answerB: '<label></label>',
-		answerC: '<label></label>',
-		answerD: '<label></label>'
-		},
-		{question: "<p class='15. question'>What don't you do?</p>",
-		answerA: '<label>A. Open up that window</label>',
-		answerB: '<label>B. Go chasing waterfalls</label>',
-		answerC: '<label id="correctString15>C. Draft a quarterback in the first round</label>',
-		answerD: '<label>Wanna miss a thang</label>'
-		}
+	var panelNum = 0;
+	var nextPanel = 0;
+	var displyndx = 0;
+	
+	var questions2Answer = [
+		'<p class="question">1. Which of the following is NOT a type of fantasy football league?</p>',
+		'<p class="question">2. How long is an official NFL football field?</p>',
+		'<p class="question">3. Which of the following reasons will NOT stop the clock?</p>',
+		'<p class="question">4. What is a turnover?</p>',
+		'<p class="question">5. What team won the first ever Super Bowl</p>',
+		'<p class="question">6. This question is intended to assess your general football and fantasy football knowledge. Manning throws a 45 yard bomb to Calvin Johnson for a touchdown. In majority of ff scoring formats this play is how many points for Johnson?</p>',
+		"<p class='question'>7. You have the first pick of the draft. It's a PPR league. Who do you take first?</p>",
+		"<p class='question'>8.  How many QB's are you allowed to start each week?</p>",
+		"<p class='question'>9. Cam Newton just had a breakout seats this year. You know he could be as good but when it's your time to pick there is high level QB's on the block still. ESPN analysts say he won't do as good. Who do you take?</p>",
+		"<p class='question'>10. It's 2016 in a PPR league and jerry rice catches a 40 yard pass. How many points does he get?</p>",
+		"<p class='question'>11. Who was on the cover of last year's Madden 2016?</p>",
+		"<p class='12. question'>What don't you do?</p>"
 	]
+
+	var answersOne = [
+		'<p class="question">1. Which of the following is NOT a type of fantasy football league?</p>',
+		'<input class="answer" type="radio" name="q1" value="1"> <label id="correctString1">A. Managers League</label>',
+		'<input class="answer" type="radio" name="q1" value="0"> <label>B. Salary Cap League</label>',
+		'<input class="answer" type="radio" name="q1" value="0"> <label>C. Pick -Em League</label>',
+		'<input class="answer" type="radio" name="q1" value="0"> <label>D.  Veni Vidi Whiskey</label>'
+		]
+	var	answersTwo = [
+		'<p class="question">2. How long is an official NFL football field?</p>',
+		'<input class="answer" type="radio" name="q2" value="0"> <label>A. 100 Yards</label>',
+		'<input class="answer" type="radio" name="q2" value="1"> <label id="correctString2">B. 120 Yards</label>',
+		'<input class="answer" type="radio" name="q2" value="0"> <label>C. 140 Yards</label>',
+		'<input class="answer" type="radio" name="q2" value="0"> <label>D. None of the above</label>'
+		]
+	var	answersThree = [
+		'<p class="question">3. Which of the following reasons will NOT stop the clock?</p>',
+		'<input class="answer" type="radio" name="q3" value="0"> <label>A. 4 Minute Warning</label>',
+		'<input class="answer" type="radio" name="q3" value="1"> <label id="correctString3">B. Running Out of Bounds</label>',
+		'<input class="answer" type="radio" name="q3" value="0"> <label>C. Incomplete Pass</label>',
+		'<input class="answer" type="radio" name="q3" value="0"> <label>D. I need to tie my shoelaces</label>'
+		]
+	var	answersFour = [
+		'<p class="question">4. What is a turnover?</p>',
+		'<input class="answer" type="radio" name="q4" value="0"> <label>A. A Flaky Pastry</label>',
+		'<input class="answer" type="radio" name="q4" value="1"> <label id="correctString4">B. When a team recovers a ball from the other teams fumble or interception</label>',
+		'<input class="answer" type="radio" name="q4" value="0"> <label>C. When a team recovers a ball from a punt</label>',
+		'<input class="answer" type="radio" name="q4" value="0"> <label>D. When the referee gives the ball to the other team</label>'
+		]
+	var	answersFive = [
+		'<p class="question">5. What team won the first ever Super Bowl</p>',
+		'<input class="answer" type="radio" name="q5" value="1"> <label id="correctString5>A. Green Bay Packers</label>',
+		'<input class="answer" type="radio" name="q5" value="0"> <label>B. Kansas City Chiefs</label>',
+		'<input class="answer" type="radio" name="q5" value="0"> <label>C. Oakland Raiders</label>',
+		'<input class="answer" type="radio" name="q5" value="0"> <label>D. Pittsburgh Steelers</label>'
+		]
+	var	answersSix = [
+		'<p class="question">6. This question is intended to assess your general football and fantasy football knowledge. Manning throws a 45 yard bomb to Calvin Johnson for a touchdown. In majority of ff scoring formats this play is how many points for Johnson?</p>',
+		'<input class="answer" type="radio" name="q6" value="0"> <label>A. 6 points></label>',
+		'<input class="answer" type="radio" name="q6" value="0"> <label>B. 10 points</label>',
+		'<input class="answer" type="radio" name="q6" value="0"> <label>C. 8 points</label>',
+		'<input class="answer" type="radio" name="q6" value="1"> <label id="correctString6">D. 10, but there is no fantasy football on pro bowl week</label>'
+		]
+	var	answersSeven = [
+		"<p class='question'>7. You have the first pick of the draft. It's a PPR league. Who do you take first?</p>",
+		'<input class="answer" type="radio" name="q7" value="0"> <label>A. Tom Brady</label>',
+		'<input class="answer" type="radio" name="q7" value="0"> <label>B. Stephen Gostkowski </label>',
+		'<input class="answer" type="radio" name="q7" value="0"> <label>C. Cam Newton</label>',
+		'<input class="answer" type="radio" name="q7" value="1"> <label id="correctString7>D. Antonio Brown</label>'
+		]
+	var	answersEight = [
+		"<p class='question'>8.  How many QB's are you allowed to start each week?</p>",
+		'<input class="answer" type="radio" name="q8" value="0"> <label>A. 24</label>',
+		'<input class="answer" type="radio" name="q8" value="0"> <label>B. Tom Brady + anyone cause he is that good</label>',
+		'<input class="answer" type="radio" name="q8" value="1"> <label id="correctString8>C. 1</label>',
+		'<input class="answer" type="radio" name="q8" value="0"> <label>D. As many as you want</label>'
+		]
+	var	answersNine = [
+		"<p class='question'>9. Cam Newton just had a breakout seats this year. You know he could be as good but when it's your time to pick there is high level QB's on the block still. ESPN analysts say he won't do as good. Who do you take?</p>",
+		'<input class="answer" type="radio" name="q9" value="0"> <label>A. Cam, no doubt he is gonna be amazing again</label>',
+		'<input class="answer" type="radio" name="q9" value="1"> <label id="correctString9>B. Tom Brady, WTF? Cam just got lucky</label>',
+		'<input class="answer" type="radio" name="q9" value="0"> <label>C. John Hickenlooper because he passed for more than any QB in 2015 season</label>',
+		'<input class="answer" type="radio" name="q9" value="0"> <label>D. Peyton Manning because he is the best of all time</label>'
+		]
+	var	answersTen = [
+		"<p class='question'>10. It's 2016 in a PPR league and jerry rice catches a 40 yard pass. How many points does he get?</p>",
+		'<input class="answer" type="radio" name="q10" value="0"> <label>A. 11</label>',
+		'<input class="answer" type="radio" name="q10" value="0"> <label>B. 8</label>',
+		'<input class="answer" type="radio" name="q10" value="1"> <label id="correctString10>C. 0</label>',
+		'<input class="answer" type="radio" name="q10" value="0"> <label>D. 15</label>'
+		]
+	var	answersEleven = [
+		"<p class='question'>11. Who was on the cover of last year's Madden 2016?</p>",
+		'<input class="answer" type="radio" name="q11" value="0"> <label>A. Peyton Manning</label>',
+		'<input class="answer" type="radio" name="q11" value="0"> <label>B. Richard Sherman</label>',
+		'<input class="answer" type="radio" name="q11" value="0"> <label>C. Russell Wilson</label>',
+		'<input class="answer" type="radio" name="q11" value="1"> <label id="correctString11>D. Odell Becham Jr</label>'
+		]
+	var	answersTwelve = [
+		"<p class='12. question'>What don't you do?</p>",
+		'<input class="answer" type="radio" name="q12" value="0"> <label>A. Open up that window</label>',
+		'<input class="answer" type="radio" name="q12" value="0"> <label>B. Go chasing waterfalls</label>',
+		'<input class="answer" type="radio" name="q12" value="1"> <label id="correctString13>C. Draft a quarterback in the first round</label>',
+		'<input class="answer" type="radio" name="q12" value="0"> <label>Wanna miss a thang</label>'
+		]
+
+	
+	function startQuiz() {
+		resetUI();
+		incrementCounters();
+		loadQuestions2Answer();
+		setPanelTimer();
+	}
+
+	function incrementCounters() {
+		displyndx++;
+		panelNum++;
+		if (panelNum < 4 ) {
+			nextPanel = (panelNum + 1);
+		}
+	}
+	
+	function loadQuestions2Answer() {
+		if (panelNum === 1) {
+			for (var i = 0; i < 4; i++) {
+				if (i === 0) {
+					
+					for (var j = 0; j < answersOne.length; j++) {
+						console.log("This is the value of answersone.length " + answersOne.length);
+						$('.answer-display1').append (	
+							$('<div/>').addClass('shown-answer').html(answersOne[j] + "<br>"));
+					}			
+				}
+				
+				if (i === 1) {
+					for (var j = 0; j < answersTwo.length; j++) {
+						console.log("This is the value of answersTwo.length " + answersTwo.length);
+						$('.answer-display2').append (	
+							$('<div/>').addClass('shown-answer').html(answersTwo[j] + "<br>"));
+					}
+				}
+				if (i === 2) {
+					for (var j = 0; j < answersThree.length; j++) {
+						console.log("This is the value of answersThree.length " + answersThree.length);
+						$('.answer-display3').append (	
+							$('<div/>').addClass('shown-answer').html(answersThree[j] + "<br>"));
+					}
+				}
+				if (i === 3) {
+					for (var j = 0; j < answersFour.length; j++) {
+						console.log("This is the value of answersFour.length " + answersFour.length);
+						$('.answer-display4').append (	
+							$('<div/>').addClass('shown-answer').html(answersFour[j] + "<br>"));
+					}
+				}
+			}
+	
+		} else if (panelNum === 2) {
+			for (var i = 4; i < 8; i++) {
+			$('.question-display').append (
+				$('<p/>').addClass('shown-question question').html(questionAndAnswers[i].question));
+				for (var j = 0; j < questionAndAnswers.answers.length; j++) {
+					var correctAnswer = questionAndAnswers.answers[j].value;
+					if (correctAnswer = 1) {			
+						$('.answer-display').append (	
+							$('<input/>').addClass('shown-answer answer').html(' type="radio" name="q1" value="1">' + questionAndAnswers.answers[j].answer));
+					} else {
+						$('.answer-display').append (	
+							$('<input/>').addClass('shown-answer answer').html(' type="radio" name="q1" value="0">' + questionAndAnswers.answers[j].answer));
+						}
+				}
+			}
+	
+		} 	else if (panelNum === 3) {
+				for (var i = 8; i < 12; i++) {
+					$('.question-display').append (
+					$('<p/>').addClass('shown-question question').html(questionAndAnswers[i].question));
+					for (var j = 0; j < questionAndAnswers.answers.length; j++) {
+						var correctAnswer = questionAndAnswers.answers[j].value;
+						if (correctAnswer = 1) {			
+							$('.answer-display').append (	
+								$('<input/>').addClass('shown-answer answer').html(' type="radio" name="q1" value="1">' + questionAndAnswers.answers[j].answer));
+						} else {
+							$('.answer-display').append (	
+								$('<input/>').addClass('shown-answer answer').html(' type="radio" name="q1" value="0">' + questionAndAnswers.answers[j].answer));
+							}
+					}
+				}
+	
+		}		else if (panelNum === 4) {
+					for (var i = 12; i < 13; i++) {
+						$('.question-display').append (
+						$('<p/>').addClass('shown-question question').html(questionAndAnswers[i].question));
+						for (var j = 0; j < questionAndAnswers.answers.length; j++) {
+							var correctAnswer = questionAndAnswers.answers[j].value;
+							if (correctAnswer = 1) {			
+								$('.answer-display').append (	
+									$('<input/>').addClass('shown-answer answer').html(' type="radio" name="q1" value="1">' + questionAndAnswers.answers[j].answer));
+							} else {
+								$('.answer-display').append (	
+									$('<input/>').addClass('shown-answer answer').html(' type="radio" name="q1" value="0">' + questionAndAnswers.answers[j].answer));
+								}
+						}
+					}
+	
+		}
+
+	}
+	
+	function loadAnswers2Questions() {
+	
+		for (var j = 0; j < answersOne.length; j++) {
+			console.log("This is the value of answersone.length " + answersOne.length);
+			$('.answer-display1').append (	
+				$('<div/>').addClass('shown-answer').html(answersOne[j] + "<br>"));
+		}
+	}
+	
+	function setPanelTimer() {
+		alert("You are now in setPanelTimer");
+	}
+	
+	function resetUI() {
+		var panelNum = 0;
+		var nextPanel = 0;
+		var displyndx = 0;
+		alert("You are now in resetUI");
+	}
 	
 	function submitQuiz() {
 		console.log('submitted');

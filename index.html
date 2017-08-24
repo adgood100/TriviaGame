@@ -19,7 +19,7 @@
 <body>
   <h2 class="quizHeader">Fantasy Football Quiz!</h2>
   
-	<table style="width:auto">
+	<table style="width:auto; background-color: #eaece5;">
 	<tr>
 	  <td>
 	  	<div>
@@ -118,7 +118,55 @@
     	<h2 class="quizScore" id="userScore"></h2>
     </div>
 	</div>
+	
+<!-- show first 1-4 questions -->
 
+	<table style="width:auto; background-color: #eaece5;">
+	<tr class= "row1">
+	  <td class= "columnR1C1">
+	  	<div class="question-display1">
+	    	<ul class="answer-display1">
+    		</ul>
+	  	</div>
+	  </td>
+	  <td class= "columnR1C2">
+	  	<div class="question-display2">
+	    	<ul class="answer-display2">
+	    	</ul>
+	  	</div>
+	  </td>
+	</tr>
+	<tr class="row2">
+	  <td class= "columnR2C1">
+	  	<div class="question-display3">
+	    	<ul class="answer-display3">
+	    	</ul>
+		</div>
+	  </td>
+	  <td class= "columnR2C2">
+	  	<div class="question-display4">
+	    	<ul class="answer-display4">
+    		</ul>
+	  	</div>
+	  </td>
+	</tr>
+	</table>
+<br/>
+  <div class="startQuiz">
+          <input class="quizStart" id="startButton" onClick="startQuiz()"
+          type="submit" value="Start" />
+    </div>
+
+	<div class="submitter">
+          <input class="quizSubmit" id="submitButton" onClick="submitQuiz()"
+          type="submit" value="Submit" />
+    </div>
+    
+
+<!-- show second 5-8 questions -->
+<!-- show third 9-12 questions -->
+<!-- show forth 13-15 questions -->
+<!-- end of questions -->
 </body>
 <script src='assets/javascript/app.js'></script>
 </html>
