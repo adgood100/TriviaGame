@@ -7,7 +7,7 @@
 	// Set the date we're counting down to
 	var countDownDate = new Date("Jan 5, 2018 15:37:25").getTime();
 	var stopTimer = 0;
-	var c = 0;
+	var c = 30;
 	var t1;
 	var timer_is_on = 0;
 	var timesUp = false;
@@ -116,7 +116,7 @@
 	}
 
 	function nextpanel () {
-		c = 0;
+		c = 30;
 		timer_is_on = 0;
 		stopTimer = 0;
 		hidePanel();
@@ -299,14 +299,11 @@
 		console.log("This is the value of 'c': " + c);
 		
 		$('#panelTimer').html("  Time remaining: " + c);
-//		$('#panelTimer').attr('visibility: visible');
-//		document.getElementById("txt").value = c;
-		c = c + 1;
+		c = c - 1;
 		console.log("This is the next value of 'c': " + c);
 		t1 = setTimeout(function(){ timedCount() }, 1000);
-		if (c >= 30) {
+		if (c <= 0) {
 			console.log("This is the value of 'c' after 30: " + c);
-//			document.getElementById("txt").value = c;
 			$('#panelTimer').html("  Time remaining: " + c);
 			stopCount();
 			alert("Time's up!!!")
@@ -330,46 +327,6 @@
 		timer_is_on = 0;
 	}
 	
-		
-	function setPanelTimer() {
-//		alert("You are now in setPanelTimer");
-
-		// Update the count down every 1 second
-		var x = setInterval(function() {
-
-		// Get todays date and time
-		var now = new Date().getTime();
-    
-		// Find the distance between now an the count down date
-		var distance = countDownDate - now;
-    
-		// Time calculations for days, hours, minutes and seconds
-		//   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-		//   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		//   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-		// Output the result in an element with id="demo"
-		if (distance > 0) {
-			stopTimer++;
-			console.log("This is value of " + stopTimer);
-			$('#panelTimer').html(seconds + "s ");
-			if (stopTimer >= 30) {
-				console.log(">=30This is value of " + stopTimer);
-				clearInterval(x);
-//				document.getElementByClass("shownPanel").innerHTML = "EXPIRED";
-				$('#panelTimer').append("<p>Time's up... !!!</p>");
-				alert("Time's up!!!")
-				if (panelNum === 3) {
-					submitQuiz();
-				}
-				nextpanel();
-			}
-//		document.getElementByClass("shownPanel").innerHTML = seconds + "s ";
-		// If the count down is over, write some text 
-		}	
-		}, 1000);
-	}
 	
 	function resetUI() {
 		var panelNum = 0;
@@ -447,7 +404,7 @@
 		if (answerScore('q11') === 0) {
 			document.getElementById('correctAnswer11').innerHTML = correctAnswer('correctString11', 11);
 		}
-		if (answerScore('124') === 0) {
+		if (answerScore('q12') === 0) {
 			document.getElementById('correctAnswer12').innerHTML = correctAnswer('correctString12', 12);
 		}
 
