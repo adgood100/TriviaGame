@@ -4,6 +4,15 @@
 	var nextPanel = 0;
 	var displyndx = 0;
 	var gameStarted = 0;
+	// Set the date we're counting down to
+	var countDownDate = new Date("Jan 5, 2018 15:37:25").getTime();
+	var stopTimer = 0;
+	var c = 0;
+	var t1;
+	var timer_is_on = 0;
+	var timesUp = false;
+
+
 	
 	var answersOne = [
 		'<p class="question">1. Which of the following is NOT a type of fantasy football league?</p>',
@@ -99,16 +108,25 @@
 			$(".quizStart").addClass('shownPanel');
 			hidePanel();
 			loadQuestions2Answer();
-			setPanelTimer();
+//			setPanelTimer();
+			startCount();
+//			timedCount();
 
 		}
 	}
 
 	function nextpanel () {
+		c = 0;
+		timer_is_on = 0;
+		stopTimer = 0;
 		hidePanel();
 		incrementCounters();
+		startCount();
 		loadQuestions2Answer();
-		setPanelTimer();
+		timesUp = false;
+//		timedCount();
+
+//		setPanelTimer();
 	}
 	
 	function hidePanel () {
@@ -128,10 +146,8 @@
 		if (panelNum === 1) {
 			$('.next-Panel-1').append (	
 				$('<div/>').addClass('Panel1').html('<input class="nextPanelbtn pull-left" id="nextButton" onClick="nextpanel()" type="submit" value="Next" />'));
-			$('.next-Panel-1').append (	
-				$('<div/>').addClass('Panel1').html('<input class="nextPanelbtn pull-left" id="nextButton" onClick="nextpanel()" type="submit" value="Next" />'));
-			$(".panel1").addClass('shownPanel');
-									
+				$(".panel1").addClass('shownPanel');
+				
 			for (var i = 0; i < 4; i++) {
 				if (i === 0) {
 					
@@ -171,7 +187,7 @@
 											
 			$('.next-Panel-2').append (	
 				$('<div/>').addClass('Panel2').html('<input class="nextPanelbtn pull-left" id="nextButton" onClick="nextpanel()" type="submit" value="Next" />'));
-			$(".panel2").addClass('shownPanel');
+					$(".panel2").addClass('shownPanel');
 
 			for (var i = 4; i < 8; i++) {
 				if (i === 4) {
@@ -249,9 +265,110 @@
 	
 		}		
 	}
+// ------------------- more timer examples
+
+
+  function xtimedCount () {
+  var timerId = 0;
+  var ctr=0;
+  var max=10;
+  
+  timerId = setInterval(function () {
+    // interval function
+    ctr++;
+    $('#blips > .progress-bar').attr("style","width:" + ctr*max + "%");
+    
+    // max reached?
+    if (ctr==max){
+		alert("Time is up!!!");
+		timesUp = true;
+		clearInterval(timerId);
+    }
+    
+  }, 3000);
+
+ 
+  $('.btn-default').click(function () {
+    clearInterval(timerId);
+  });
+
+  }
+
+// ------------------- more timer examples	
+	function timedCount() {
+		console.log("This is the value of 'c': " + c);
+		
+		$('#panelTimer').html("  Time remaining: " + c);
+//		$('#panelTimer').attr('visibility: visible');
+//		document.getElementById("txt").value = c;
+		c = c + 1;
+		console.log("This is the next value of 'c': " + c);
+		t1 = setTimeout(function(){ timedCount() }, 1000);
+		if (c >= 30) {
+			console.log("This is the value of 'c' after 30: " + c);
+//			document.getElementById("txt").value = c;
+			$('#panelTimer').html("  Time remaining: " + c);
+			stopCount();
+			alert("Time's up!!!")
+			if (panelNum < 3) {
+				nextpanel();
+			} 	else if (panelNum === 3) {
+				submitQuiz();
+			}
+		}
+	}
+
+	function startCount() {
+		if (!timer_is_on) {
+			timer_is_on = 1;
+			timedCount();
+		}
+	}
+
+	function stopCount() {
+		clearTimeout(t1);
+		timer_is_on = 0;
+	}
+	
 		
 	function setPanelTimer() {
-		alert("You are now in setPanelTimer");
+//		alert("You are now in setPanelTimer");
+
+		// Update the count down every 1 second
+		var x = setInterval(function() {
+
+		// Get todays date and time
+		var now = new Date().getTime();
+    
+		// Find the distance between now an the count down date
+		var distance = countDownDate - now;
+    
+		// Time calculations for days, hours, minutes and seconds
+		//   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		//   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		//   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+		// Output the result in an element with id="demo"
+		if (distance > 0) {
+			stopTimer++;
+			console.log("This is value of " + stopTimer);
+			$('#panelTimer').html(seconds + "s ");
+			if (stopTimer >= 30) {
+				console.log(">=30This is value of " + stopTimer);
+				clearInterval(x);
+//				document.getElementByClass("shownPanel").innerHTML = "EXPIRED";
+				$('#panelTimer').append("<p>Time's up... !!!</p>");
+				alert("Time's up!!!")
+				if (panelNum === 3) {
+					submitQuiz();
+				}
+				nextpanel();
+			}
+//		document.getElementByClass("shownPanel").innerHTML = seconds + "s ";
+		// If the count down is over, write some text 
+		}	
+		}, 1000);
 	}
 	
 	function resetUI() {
@@ -259,7 +376,7 @@
 		var nextPanel = 0;
 		var displyndx = 0;
 		var gameStarted = 0;
-		alert("You are now in resetUI");
+//		alert("You are now in resetUI");
 	}
 	
 	function submitQuiz() {
