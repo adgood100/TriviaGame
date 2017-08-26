@@ -10,7 +10,9 @@
 
 
   <!-- Bootstrap Files -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery.js"></script>
@@ -20,12 +22,13 @@
   <h2 class="quizHeader">Fantasy Football Quiz!</h2>
 
   <!--show start quiz button -->
-	<container>
-	<div class="startQuiz">
+	<div class="container">
+<!--	<div class="startQuiz">
 		<input class="quizStart pull-left" id="startButton" onClick="startQuiz()" type="submit" value="Start" />
 
 	</div>
 	<br>
+-->
 	<table class="table panel1" style="width:auto; background-color: #eaece5;">
 	    <thead>
 			<tr>
@@ -65,12 +68,6 @@
 	<tr>
 		<td class="row3">
 			<div class="next-Panel-1"> </div>
-		
-			
-<!--			<button onclick="startCount()">Start Quiz!</button> 
-				<input type="text" id="txt">
-<!--			<button onclick="stopCount()">Stop count!</button> -->
-
 			
 		</td>
 	</tr>
@@ -118,12 +115,6 @@
 	<tr class="row3">
 		<td>
 			<div class="next-Panel-2"> </div>
-		
-			
-	<!--		<button onclick="startCount()">Start Quiz!</button> 
-				<input type="text" id="txt">
-<!--			<button onclick="stopCount()">Stop count!</button> -->
-
 			
 		</td>
 	</tr>
@@ -173,26 +164,13 @@
 		<td>
 			<div class="submitter">
 			</div>
-			
-			
-<!--			<button onclick="startCount()">Start Quiz!</button> 
-				<input type="text" id="txt">
-<!--			<button onclick="stopCount()">Stop count!</button> -->
-
-			
+						
 		</td>
 	</tr>
 	</table>
 	<br/>
 	  <hr>
-<!--  <div class="progress" id="blips">
-    <div class="progress-bar" role="progressbar">
-      <span class="sr-only"></span>
-    </div>
-  </div>
-  
-  <button class="btn btn-default">Stop</button>
--->
+
   <!--show only wrong answers on submit-->
     <div class="quizAnswers" id="correctAnswer1"></div>
 	<div class="quizAnswers" id="correctAnswer2"></div>
@@ -211,11 +189,11 @@
     <div>
     	<h2 class="quizScore" id="userScore"></h2>
     </div>
-	</div>
+
   
 
 <!-- end of questions -->
-</container>
+</div>
 </body>
-<script src='assets/javascript/app.js'></script>
+<script src='assets/javascript/app.js'></script> 
 </html>

@@ -99,8 +99,15 @@
 		'<input class="answer" type="radio" name="q12" value="0"> <label>Wanna miss a thang</label>'
 		]
 
+
+$(document).ready(function(){
+
+	startQuiz();
+
+});
 	
 	function startQuiz() {
+		
 		if (gameStarted === 0) {
 			gameStarted++;
 			resetUI();
@@ -108,9 +115,7 @@
 			$(".quizStart").addClass('shownPanel');
 			hidePanel();
 			loadQuestions2Answer();
-//			setPanelTimer();
 			startCount();
-//			timedCount();
 
 		}
 	}
@@ -124,9 +129,6 @@
 		startCount();
 		loadQuestions2Answer();
 		timesUp = false;
-//		timedCount();
-
-//		setPanelTimer();
 	}
 	
 	function hidePanel () {
@@ -144,6 +146,7 @@
 	
 	function loadQuestions2Answer() {
 		if (panelNum === 1) {
+								
 			$('.next-Panel-1').append (	
 				$('<div/>').addClass('Panel1').html('<input class="nextPanelbtn pull-left" id="nextButton" onClick="nextpanel()" type="submit" value="Next" />'));
 				$(".panel1").addClass('shownPanel');
@@ -265,34 +268,6 @@
 	
 		}		
 	}
-// ------------------- more timer examples
-
-
-  function xtimedCount () {
-  var timerId = 0;
-  var ctr=0;
-  var max=10;
-  
-  timerId = setInterval(function () {
-    // interval function
-    ctr++;
-    $('#blips > .progress-bar').attr("style","width:" + ctr*max + "%");
-    
-    // max reached?
-    if (ctr==max){
-		alert("Time is up!!!");
-		timesUp = true;
-		clearInterval(timerId);
-    }
-    
-  }, 3000);
-
- 
-  $('.btn-default').click(function () {
-    clearInterval(timerId);
-  });
-
-  }
 
 // ------------------- more timer examples	
 	function timedCount() {
@@ -310,6 +285,7 @@
 			if (panelNum < 3) {
 				nextpanel();
 			} 	else if (panelNum === 3) {
+				stopCount();
 				submitQuiz();
 			}
 		}
@@ -333,12 +309,13 @@
 		var nextPanel = 0;
 		var displyndx = 0;
 		var gameStarted = 0;
+		stopCount();
 //		alert("You are now in resetUI");
 	}
 	
 	function submitQuiz() {
 		console.log('submitted');
-
+		stopCount();
 	// get each answer score
 		function answerScore (qName) {
 			var radiosNo = document.getElementsByName(qName);

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  .modal-header, h4, .close {
+      background-color: #5cb85c;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-footer {
+      background-color: #f9f9f9;
+  }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Fantasy Football Quiz</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-default btn-lg" id="myBtn">Start Quiz</button>
+
+  <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Fantasy Football Quiz!</h4>
+        </div>
+        <div class="modal-body">
+          <p>How much do you really know about fantasy football quiz questions? Let's check and prove yourself now!</p>
+		  <br>
+		  <img src="assets/images/fantasyfootballquiz.jpg" alt="Fantasy Football" style="width:548px;height:548px;">
+        </div>
+        <div class="modal-footer">
+			<button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+            <input class="btn btn-danger btn-default quizStart pull-left" id="startButton" onClick="startQuiz()" type="submit" value="Start" />
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  <div class="modal fade shownPanel" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-hourglass"></span> Fantasy Football</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          	<table class="table panel1" style="width:auto; background-color: #eaece5;">
+	    <thead>
+			<tr>
+				<th>Questions</th>
+				<span id="panelTimer"></span>
+
+			</tr>
+		</thead>
+	<tr class="row1">
+	  <td class="columnR1C1">
+	  	<div class="question-display1">
+	    	<ul class="answer-display1">
+    		</ul>
+	  	</div>
+	  </td>
+	  <td class="columnR1C2">
+	  	<div class="question-display2">
+	    	<ul class="answer-display2">
+	    	</ul>
+	  	</div>
+	  </td>
+	</tr>
+	<tr class="row2">
+	  <td class="columnR2C1">
+	  	<div class="question-display3">
+	    	<ul class="answer-display3">
+	    	</ul>
+		</div>
+	  </td>
+	  <td class="columnR2C2">
+	  	<div class="question-display4">
+	    	<ul class="answer-display4">
+    		</ul>
+	  	</div>
+	  </td>
+	</tr>
+	<tr>
+		<td class="row3">
+			<div class="next-Panel-1"> </div>
+					
+		</td>
+	</tr>
+	</table>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+		  <input class="btn btn-danger btn-default quizStart pull-left" id="startButton" onClick="startQuiz()" type="submit" value="Start" />
+          <p>Not a member? <a href="#">Sign Up</a></p>
+          <p>Forgot <a href="#">Password?</a></p>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+<!-- Modal 2 -->
+
+  <div class="modal fade shownPanel" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-hourglass"></span> Fantasy Football</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+	<table class="table panel2" style="width:auto; background-color: #eaece5;">
+		<thead>
+		<tr>
+			<th>Questions</th>
+			<span id="panelTimer"></span>
+
+		</tr>
+		</thead>
+	<tr class="row1">
+	  <td class="columnR1C1">
+	  	<div class="question-display5">
+	    	<ul class="answer-display5">
+    		</ul>
+	  	</div>
+	  </td>
+	  <td class="columnR1C2">
+	  	<div class="question-display6">
+	    	<ul class="answer-display6">
+	    	</ul>
+	  	</div>
+	  </td>
+	</tr>
+	<tr class="row2">
+	  <td class="columnR2C1">
+	  	<div class="question-display7">
+	    	<ul class="answer-display7">
+	    	</ul>
+		</div>
+	  </td>
+	  <td class="columnR2C2">
+	  	<div class="question-display8">
+	    	<ul class="answer-display8">
+    		</ul>
+	  	</div>
+	  </td>
+	</tr>
+	<tr class="row3">
+		<td>
+			<div class="next-Panel-2"> </div>
+			
+		</td>
+	</tr>
+	</table>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+		  <input class="btn btn-danger btn-default quizStart pull-left" id="startButton" onClick="startQuiz()" type="submit" value="Start" />
+          <p>Not a member? <a href="#">Sign Up</a></p>
+          <p>Forgot <a href="#">Password?</a></p>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+
+<!-- Modal 2 -->
+
+<!-- Modal 3 -->
+
+  <div class="modal fade shownPanel" id="myModal3" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-hourglass"></span> Fantasy Football</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+ 	<table class="table panel3" style="width:auto; background-color: #eaece5;">
+		<thead>
+		<tr>
+			<th>Questions</th>
+			<span id="panelTimer"></span>
+		</tr>
+		</thead>
+	<tr class="row1">
+	  <td class="columnR1C1">
+	  	<div class="question-display9">
+	    	<ul class="answer-display9">
+    		</ul>
+	  	</div>
+	  </td>
+	  <td class="columnR1C2">
+	  	<div class="question-display10">
+	    	<ul class="answer-display10">
+	    	</ul>
+	  	</div>
+	  </td>
+	</tr>
+	<tr class="row2">
+	  <td class="columnR2C1">
+	  	<div class="question-display11">
+	    	<ul class="answer-display11">
+	    	</ul>
+		</div>
+	  </td>
+	  <td class="columnR2C2">
+	  	<div class="question-display12">
+	    	<ul class="answer-display12">
+    		</ul>
+	  	</div>
+	  </td>
+	</tr>
+	<tr class="row3">
+	<!--show control buttons -->
+		<td>
+			<div class="submitter">
+			</div>
+			
+		</td>
+	</tr>
+	</table>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+		  <input class="btn btn-danger btn-default quizStart pull-left" id="startButton" onClick="startQuiz()" type="submit" value="Start" />
+          <p>Not a member? <a href="#">Sign Up</a></p>
+          <p>Forgot <a href="#">Password?</a></p>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+
+<!-- Modal 3 -->
+  
+  
+</div>
+<script src='assets/javascript/app.js'></script> 
+<script>
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal1").modal();
+		startQuiz();
+    });
+});
+</script>
+
+</body>
+</html>
