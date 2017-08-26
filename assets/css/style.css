@@ -156,6 +156,8 @@ input.nextPanelbtn[type="submit"]:hover {
 table {
 	margin: auto;
 	background-color: #eaece5;
+/*	background: url("../images/certificate.png") no-repeat; */
+/*	background-size: 100%; */
 	border:1px solid #BDBDBD;
 	border-radius:5px;
 	padding:10px;

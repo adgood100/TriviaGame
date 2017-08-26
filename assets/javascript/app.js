@@ -334,6 +334,12 @@
 	function submitQuiz() {
 		console.log('submitted');
 		stopCount();
+		gameStarted = 0;
+		$('.showhead3').attr("style", "display: none;");
+		$('.showbody3').attr("style", "display: none;");
+		$('.showhead4').attr("style", "display: block;");
+		$("input").removeClass("hide");
+
 	// get each answer score
 		function answerScore (qName) {
 			var radiosNo = document.getElementsByName(qName);
