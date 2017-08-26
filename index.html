@@ -19,15 +19,22 @@
 
 </head>
 <body style="margin: auto;">
-  <h2 class="quizHeader">Fantasy Football Quiz!</h2>
+<!--  <h2 class="quizHeader">Fantasy Football Quiz!</h2> -->
 
   
   <!--show start quiz button -->
 	<div class="container">
-	<div class="startQuiz">
-		<input class="quizStart pull-left" id="startButton" onClick="startQuiz()" type="submit" value="Play" />
+		<div class="jumbotron">
+			<h1 class="jumboText" style="color: white;">Welcome to Fantasy Football Quiz!!!</h1>
+			<p style="color: white;">How much do you really know about fantasy football quiz questions? Let's check and prove yourself now!</p>
+<!--			<a class="btn btn-primary btn-lg">More Details <span class="glyphicon glypicon-chevron-right"></span>  </a> -->
+		
+					<div class="startQuiz">
+				<input class="quizStart pull-left" id="startButton" onClick="startQuiz()" type="submit" value="Play" />
+			</div>
 
-	</div>
+		</div>
+
 	<br>
 
 
@@ -178,7 +185,15 @@
 	</table>
 	<br/>
 	  <hr>
+<!--show score upon submit-->
 
+    <div>
+    	<h2 class="quizScore" id="userScore"></h2>
+    </div>
+
+
+<!-- end of questions -->
+	  
   <!--show only wrong answers on submit-->
     <div class="quizAnswers" id="correctAnswer1"></div>
 	<div class="quizAnswers" id="correctAnswer2"></div>
@@ -193,14 +208,7 @@
     <div class="quizAnswers" id="correctAnswer11"></div>
     <div class="quizAnswers" id="correctAnswer12"></div>
 
-<!--show score upon submit-->
 
-    <div>
-    	<h2 class="quizScore" id="userScore"></h2>
-    </div>
-
-
-<!-- end of questions -->
 </div>
 </body>
 <script src='assets/javascript/app.js'></script> 
