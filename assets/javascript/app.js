@@ -100,11 +100,12 @@
 		]
 
 
-$(document).ready(function(){
+//$(document).ready(function(){
 
-	startQuiz();
+//	splashPage();
+//	startQuiz();
 
-});
+//});
 	
 	function startQuiz() {
 		
@@ -120,7 +121,20 @@ $(document).ready(function(){
 		}
 	}
 
+	function splashPage () {
+		
+		// Add the img to the HTML
+		$("#splash-txt").append(
+			$('<p/>').addClass('mySplash').text("How much do you really know about fantasy football quiz questions? Let's check and prove yourself now!"));
+		
+		$("#splash").append(
+			$('<div/>').addClass('mySplash').html('<img src="assets/images/fantasyfootballquiz.jpg" alt="Fantasy Football" style="width:548px;height:548px;">'));
+		
+		
+	}
+	
 	function nextpanel () {
+		stopCount();
 		c = 30;
 		timer_is_on = 0;
 		stopTimer = 0;
@@ -145,8 +159,10 @@ $(document).ready(function(){
 	}
 	
 	function loadQuestions2Answer() {
+
 		if (panelNum === 1) {
-								
+			$('.showhead1').attr("style", "display: block;");
+			$('.showbody1').attr("style", "display: block;");					
 			$('.next-Panel-1').append (	
 				$('<div/>').addClass('Panel1').html('<input class="nextPanelbtn pull-left" id="nextButton" onClick="nextpanel()" type="submit" value="Next" />'));
 				$(".panel1").addClass('shownPanel');
@@ -187,7 +203,8 @@ $(document).ready(function(){
 			}
 	
 		} else if (panelNum === 2) {	
-											
+			$('.showhead2').attr("style", "display: block;");
+			$('.showbody2').attr("style", "display: block;");								
 			$('.next-Panel-2').append (	
 				$('<div/>').addClass('Panel2').html('<input class="nextPanelbtn pull-left" id="nextButton" onClick="nextpanel()" type="submit" value="Next" />'));
 					$(".panel2").addClass('shownPanel');
@@ -226,7 +243,8 @@ $(document).ready(function(){
 			}
 			
 		} 	else if (panelNum === 3) {
-								
+				$('.showhead3').attr("style", "display: block;");
+				$('.showbody3').attr("style", "display: block;");				
 				$('.submitter').append (	
 					$('<div/>').addClass('quizStart').html('<input class="quizSubmit" id="submitButton" onClick="submitQuiz()" type="submit" value="Submit" />'));
 				$(".panel3").addClass('shownPanel');

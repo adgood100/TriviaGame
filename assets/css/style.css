@@ -163,8 +163,12 @@ table {
 	box-shadow: rgba(0, 0, 0, 0.498039) 0px 0px 1px 0px;
 }
 
+tbody {
+	display: none;
+}
+
 th {
-  
+	display: none;
 }
 
 tr {
